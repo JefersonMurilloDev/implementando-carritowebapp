@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Online - Inicio</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .hero-container {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .main-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 3em;
+            color: #333;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .nav-item {
+            background: white;
+            padding: 25px 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #333;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .nav-item:hover::before {
+            left: 100%;
+        }
+        
+        .nav-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .nav-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .nav-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .nav-description {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        .hero-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .features-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+        
+        .features-title {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .features-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .feature-item {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .main-card {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .nav-item {
+            animation: fadeInUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+        
+        .nav-item:nth-child(1) { animation-delay: 0.1s; }
+        .nav-item:nth-child(2) { animation-delay: 0.2s; }
+        .nav-item:nth-child(3) { animation-delay: 0.3s; }
+        .nav-item:nth-child(4) { animation-delay: 0.4s; }
+        
+        @media (max-width: 768px) {
+            .main-card {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+            
+            .hero-title {
+                font-size: 2.2em;
+            }
+            
+            .nav-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-list {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-container">
+        <div class="main-card">
+            <div class="hero-icon">🛒</div>
+            <h1 class="hero-title">Tienda Online</h1>
+            <p class="hero-subtitle">
+                Bienvenido a nuestra plataforma de compras online. 
+                Explora nuestros productos, gestiona tu carrito y disfruta de una experiencia de compra única.
+            </p>
+            
+            <div class="nav-grid">
+                <a href="/webapp-session/productos.html" class="nav-item">
+                    <span class="nav-icon">📦</span>
+                    <div class="nav-title">Productos</div>
+                    <div class="nav-description">Explora nuestro catálogo completo de productos</div>
+                </a>
+                
+                <a href="/webapp-session/login" class="nav-item">
+                    <span class="nav-icon">🔐</span>
+                    <div class="nav-title">Iniciar Sesión</div>
+                    <div class="nav-description">Accede a tu cuenta para una experiencia personalizada</div>
+                </a>
+                
+                <a href="/webapp-session/ver-carro" class="nav-item">
+                    <span class="nav-icon">🛍️</span>
+                    <div class="nav-title">Ver Carrito</div>
+                    <div class="nav-description">Revisa y gestiona los productos en tu carrito</div>
+                </a>
+                
+                <a href="/webapp-session/logout" class="nav-item">
+                    <span class="nav-icon">🚪</span>
+                    <div class="nav-title">Cerrar Sesión</div>
+                    <div class="nav-description">Sal de tu cuenta de forma segura</div>
+                </a>
+            </div>
+            
+            <div class="features-section">
+                <h3 class="features-title">✨ Características</h3>
+                <div class="features-list">
+                    <div class="feature-item">🚚 Envío Rápido</div>
+                    <div class="feature-item">💳 Pago Seguro</div>
+                    <div class="feature-item">📱 Responsive</div>
+                    <div class="feature-item">🔄 Gestión de Carrito</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

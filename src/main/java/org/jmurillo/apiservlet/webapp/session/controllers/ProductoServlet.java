@@ -26,6 +26,9 @@ public class ProductoServlet extends HttpServlet {
         LoginService loginService = new LoginServiceSessionImpl();
         Optional<String> usernameOptional = loginService.getUsername(req);
 
+        String mensajeRequest = (String) req.getAttribute("mensaje");
+        String mensajeApp = (String) getServletContext().getAttribute("mensaje");
+
         resp.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = resp.getWriter()) {
 
@@ -282,7 +285,7 @@ public class ProductoServlet extends HttpServlet {
                     
                     if (usernameOptional.isPresent()) {
                         out.println("                <div class='producto-precio'>$" + String.format("%,d", p.getPrecio()) + "</div>");
-                        out.println("                <a href='" + req.getContextPath() + "/agregar-carro?id=" + p.getId() + "' class='btn-agregar'>");
+                        out.println("                <a href='" + req.getContextPath() + "/carro/agregar?id=" + p.getId() + "' class='btn-agregar'>");
                         out.println("                    🛒 Agregar al Carrito");
                         out.println("                </a>");
                     } else {
@@ -309,6 +312,8 @@ public class ProductoServlet extends HttpServlet {
             out.println("            <a href='" + req.getContextPath() + "/index.html' class='nav-btn'>🏠 Inicio</a>");
             out.println("        </div>");
             out.println("    </div>");
+            out.println("<p>" + mensajeApp + "</p>");
+            out.println("<p>" + mensajeRequest + "</p>");
             out.println("</body>");
             out.println("</html>");
         }

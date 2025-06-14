@@ -11,7 +11,7 @@ import org.jmurillo.apiservlet.webapp.session.models.Carro;
 import java.io.IOException;
 import java.util.Arrays;
 
-@WebServlet("/actualizar-carro")
+@WebServlet("/carro/actualizar")
 public class ActualizarCarroServlet extends HttpServlet {
     
     @Override

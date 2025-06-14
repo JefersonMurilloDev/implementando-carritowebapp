@@ -144,6 +144,23 @@
             color: #555;
             font-weight: 500;
         }
+
+        .dev-badge {
+            margin-top: 40px;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50px;
+            font-size: 1em;
+            font-weight: 600;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .dev-badge:hover {
+            transform: scale(1.05);
+        }
         
         @keyframes fadeInUp {
             from {
@@ -214,7 +231,7 @@
                     <div class="nav-description">Accede a tu cuenta para una experiencia personalizada</div>
                 </a>
                 
-                <a href="/webapp-session/ver-carro" class="nav-item">
+                <a href="/webapp-session/carro/ver" class="nav-item">
                     <span class="nav-icon">🛍️</span>
                     <div class="nav-title">Ver Carrito</div>
                     <div class="nav-description">Revisa y gestiona los productos en tu carrito</div>
@@ -235,6 +252,9 @@
                     <div class="feature-item">📱 Responsive</div>
                     <div class="feature-item">🔄 Gestión de Carrito</div>
                 </div>
+            </div>
+            <div class="dev-badge">
+                💖 Desarrollado por ShelaSoft
             </div>
         </div>
     </div>

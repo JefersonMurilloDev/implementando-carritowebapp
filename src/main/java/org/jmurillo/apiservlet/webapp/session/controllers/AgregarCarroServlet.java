@@ -11,8 +11,10 @@ import org.jmurillo.apiservlet.webapp.session.models.ItemCarro;
 import org.jmurillo.apiservlet.webapp.session.models.Producto;
 import org.jmurillo.apiservlet.webapp.session.services.ProductoService;
 import org.jmurillo.apiservlet.webapp.session.services.ProductoServiceImp;
+import org.jmurillo.apiservlet.webapp.session.services.ProductoServiceJdbcImpl;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.Optional;
 
 @WebServlet("/carro/agregar")
@@ -20,7 +22,8 @@ public class AgregarCarroServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Long id = Long.parseLong(req.getParameter("id"));
-        ProductoService service = new ProductoServiceImp();
+        Connection conn = (Connection) req.getAttribute("conn");
+        ProductoService service = new ProductoServiceJdbcImpl(conn);
         Optional<Producto> producto = service.buscarProductoPorId(id);
         if (producto.isPresent()) {
             ItemCarro item = new ItemCarro(1, producto.get());

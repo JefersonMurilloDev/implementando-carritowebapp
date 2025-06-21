@@ -24,15 +24,4 @@ public class ProductoServiceImp implements ProductoService {
         return listar().stream().filter(p -> p.getId().equals(id)).findAny();
     }
 
-    @Override
-    public Optional<Producto> buscarProducto(String nombre) {
-        return this.listar().stream()
-                .filter(p ->{
-                    if (nombre == null || nombre.isBlank()) {
-                        return false;
-                    }
-                    return p.getNombre().toLowerCase().contains(nombre.toLowerCase());
-                })
-               .findFirst();
-    }
 }

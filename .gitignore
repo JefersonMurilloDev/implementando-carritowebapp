@@ -74,3 +74,18 @@ Thumbs.db
 *.log
 *.sql
 *.sqlite
+
+# Archivos de configuración con credenciales
+src/main/resources/config.properties
+config.properties
+database.properties
+
+# Variables de entorno
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# IDE configurations
+.idea/runConfigurations/
